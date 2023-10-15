@@ -13,18 +13,5 @@ public class AccessingDataJpaApplication {
     public static void main(String[] args) {
         SpringApplication.run(AccessingDataJpaApplication.class);
     }
-
-//    @Bean
-//    public CommandLineRunner demo(BuddyInfoRepo repository) {
-//        return (args) -> {
-//
-//            repository.save(new BuddyInfo("X", "1234"));
-//            repository.save(new BuddyInfo("Y", "987654"));
-//            for (BuddyInfo buddyInfo : repository.findAll()) {
-//                log.info(buddyInfo.getName());
-//            }
-//            log.info("");
-//        };
-//    }
-
+    
 }
