@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mainFrame" class="com.sysc.test.UI.MainFrame" init-method="init" scope="singleton">
+        <property name="title">
+            <value>Address Book</value>
+        </property>
+        <property name="contentPane">
+            <ref bean="mainPanel"/>
+        </property>
+        <property name="defaultCloseOperation">
+            <value>0</value>
+        </property>
+    </bean>
+    <bean id="mainPanel" class="com.sysc.test.UI.AdrPanel" init-method="init" scope="singleton">
+        <property name="panelComponents">
+            <list>
+                <ref bean="nameLabel"/>
+                <ref bean="nameText"/>
+                <ref bean="numberLabel"/>
+                <ref bean="numberText"/>
+                <ref bean="addButton"/>
+                <ref bean="area"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="numberLabel" class="com.sysc.test.UI.AdrLabel" scope="singleton">
+        <property name="text">
+            <value>Enter Contact Number</value>
+        </property>
+    </bean>
+    <bean id="nameLabel" class="com.sysc.test.UI.AdrLabel" scope="singleton">
+        <property name="text">
+            <value>Enter Contact Name</value>
+        </property>
+    </bean>
+    <bean id="numberText" class="com.sysc.test.UI.AdrTextField" scope="singleton">
+        <property name="columns">
+            <value>10</value>
+        </property>
+    </bean>
+    <bean id="nameText" class="com.sysc.test.UI.AdrTextField" scope="singleton">
+        <property name="columns">
+            <value>10</value>
+        </property>
+    </bean>
+    <bean id="area" class="com.sysc.test.UI.AdrTextArea" scope="singleton">
+        <property name="editable">
+            <value>false</value>
+        </property>
+        <property name="columns">
+            <value>30</value>
+        </property>
+        <property name="rows">
+            <value>10</value>
+        </property>
+    </bean>
+    <bean id="addButton" class="com.sysc.test.UI.AdrButton" init-method="init" scope="singleton">
+        <property name="text">
+            <value>Add Buddy</value>
+        </property>
+        <property name="listener">
+            <ref bean="listener"/>
+        </property>
+    </bean>
+    <bean id="addressBook" class="com.sysc.test.AddressBook" scope="singleton"/>
+    <bean id="controller" class="com.sysc.test.AddressBookController" scope="singleton">
+        <property name="addressBook">
+            <ref bean="addressBook"/>
+        </property>
+    </bean>
+    <bean id="buddy" class="com.sysc.test.BuddyInfo" scope="prototype"/>
+    <bean id="listener" class="com.sysc.test.UI.AdrListener"  scope="singleton">
+        <property name="numberField">
+            <ref bean="numberText"/>
+        </property>
+        <property name="controller">
+            <ref bean="controller"/>
+        </property>
+        <property name="nameField">
+            <ref bean="nameText"/>
+        </property>
+        <property name="outputText">
+            <ref bean="area"/>
+        </property>
+        <property name="buddyFactory">
+            <ref bean="buddyFactory"/>
+        </property>
+    </bean>
+    <bean id="buddyFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName">
+            <idref bean="buddy"/>
+        </property>
+    </bean>
+</beans>

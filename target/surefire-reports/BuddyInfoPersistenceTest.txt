@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: BuddyInfoPersistenceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.631 sec <<< FAILURE! - in BuddyInfoPersistenceTest
+TestBuddyInfoPersistence(BuddyInfoPersistenceTest)  Time elapsed: 0.63 sec  <<< ERROR!
+javax.persistence.PersistenceException: No Persistence provider for EntityManager named addressbook
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:61)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:39)
+	at BuddyInfoPersistenceTest.setUp(BuddyInfoPersistenceTest.java:21)
+
