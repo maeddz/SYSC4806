@@ -13,5 +13,5 @@ public class AccessingDataJpaApplication {
     public static void main(String[] args) {
         SpringApplication.run(AccessingDataJpaApplication.class);
     }
-    
+
 }
