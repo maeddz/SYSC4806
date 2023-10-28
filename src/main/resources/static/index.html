@@ -3,9 +3,18 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="file.js"></script>
 </head>
 <body>
-    <p>Show all Buddies <a href="/buddyInfo">here</a></p>
-    <p>Show Buddies per Address Book <a href="/addressBook">here</a></p>
+<form action="#" th:action="@{/addressBook}" method="post" id="createaddressbook">
+    <h6> Create AddreskjkjsBook</h6>
+    <p><input type="submit" value="Create AddressBook"/></p>
+</form>
+
+<form action="#" th:action="@{/addressBook}" method="get" id="viewaddressbook">
+    <h6> View AddressBook</h6>
+    <p><input type="submit" value="View AddressBook"/></p>
+</form>
 </body>
 </html>

@@ -52,6 +52,6 @@ public class AdrBookControllerAPI {
         AddressBook adrBook = new AddressBook();
         repository.save(adrBook).getId();
         response.setContentType("text/plain");
-        return "Created!";
+        return "createaddressbook";
     }
 }
