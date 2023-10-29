@@ -3,8 +3,6 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
 <main>
@@ -24,9 +22,19 @@
                 <td th:text="${budy.name}" />
                 <td th:text="${budy.number}" />
             </tr>
+
+            <tr>
+                <form action="#" th:action="@{'/addressBook/' + ${addressBook.id}}" method="post" id="createBuddyInfo">
+                    <p>Name: <input type="text"  id="name"/>
+                    Number: <input type="text" id="number"/>
+                    <input name="id" id="addrId" th:value='${addressBook.id}' hidden/>
+                    <input type="submit" value="Submit" onclick='createBuddy()'/>
+                </form>
+            </tr>
             </tbody>
         </table>
     </section>
 </main>
+
 </body>
 </html>
